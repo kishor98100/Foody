@@ -28,6 +28,7 @@ class FoodRecipeAdapter : RecyclerView.Adapter<FoodRecipeAdapter.FoodRecipeViewH
     override fun onBindViewHolder(holder: FoodRecipeViewHolder, position: Int) {
         val currentRecipe = recipes[position]
         holder.bind(currentRecipe)
+
     }
 
     override fun getItemCount(): Int = recipes.size
@@ -42,12 +43,15 @@ class FoodRecipeAdapter : RecyclerView.Adapter<FoodRecipeAdapter.FoodRecipeViewH
 
     class FoodRecipeViewHolder(private val binding: RecipeRowLayoutBinding) :
         RecyclerView.ViewHolder(binding.root) {
+
         fun bind(foodResult: FoodResult) {
             binding.foodResult = foodResult
             binding.executePendingBindings()
         }
 
+
         companion object {
+            const val TAG = "RECIPE_ADAPTER"
             fun from(parent: ViewGroup): FoodRecipeViewHolder {
                 val layoutInflater = LayoutInflater.from(parent.context)
                 val binding = RecipeRowLayoutBinding.inflate(layoutInflater, parent, false)

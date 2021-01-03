@@ -1,6 +1,9 @@
 package np.com.mkishor.fooddy.data.models
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
+import kotlinx.android.parcel.RawValue
 
 
 /**
@@ -9,6 +12,7 @@ import com.google.gson.annotations.SerializedName
  * @email:  mainalikishor@outlook.com
  *
  */
+@Parcelize
 data class FoodResult(
     @SerializedName("aggregateLikes")
     val aggregateLikes: Int,
@@ -17,17 +21,17 @@ data class FoodResult(
     @SerializedName("dairyFree")
     val dairyFree: Boolean,
     @SerializedName("extendedIngredients")
-    val extendedIngredients: List<ExtendedIngredient>,
+    val extendedIngredients: @RawValue List<ExtendedIngredient>,
     @SerializedName("glutenFree")
     val glutenFree: Boolean,
     @SerializedName("id")
     val id: Int,
     @SerializedName("image")
-    val image: String,
+    val image: String?,
     @SerializedName("readyInMinutes")
     val readyInMinutes: Int,
     @SerializedName("sourceName")
-    val sourceName: String,
+    val sourceName: String?,
     @SerializedName("sourceUrl")
     val sourceUrl: String,
     @SerializedName("summary")
@@ -40,4 +44,4 @@ data class FoodResult(
     val vegetarian: Boolean,
     @SerializedName("veryHealthy")
     val veryHealthy: Boolean,
-)
+) : Parcelable
