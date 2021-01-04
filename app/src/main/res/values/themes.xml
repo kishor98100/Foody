@@ -6,14 +6,14 @@
         <item name="colorAccent">@color/purple_700</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
         <item name="colorOnPrimary">@color/white</item>
-        <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
         <item name="colorSecondaryVariant">@color/teal_700</item>
         <item name="colorOnSecondary">@color/black</item>
-        <!-- Status bar color. -->
         <item name="android:statusBarColor">@color/purple_500</item>
-        <!-- Customize your theme here. -->
         <item name="actionModeBackground">@color/darker</item>
+        <item name="actionBarStyle">@style/CustomActionBarTheme</item>
+        <item name="android:actionBarStyle">@style/CustomActionBarTheme</item>
+
     </style>
 
     <style name="CustomChipStyle" parent="Widget.MaterialComponents.Chip.Filter">
@@ -36,6 +36,9 @@
         <!-- Customize your theme here. -->
         <item name="colorControlNormal">@color/white</item>
         <item name="android:statusBarColor">@color/purple_500</item>
+        <item name="actionBarStyle">@style/CustomActionBarTheme</item>
+        <item name="android:actionBarStyle">@style/CustomActionBarTheme</item>
+
     </style>
 
     <style name="CustomTabBarLayout" parent="Widget.MaterialComponents.TabLayout">
@@ -50,6 +53,16 @@
 
     <style name="CustomTabTextStyle" parent="TextAppearance.Design.Tab">
         <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="SplashScreenStyle" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:windowBackground">@drawable/splash_screen</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+    </style>
+
+    <style name="CustomActionBarTheme" parent="Widget.MaterialComponents.ActionBar.Primary">
+        <item name="background">@color/purple_200</item>
     </style>
 
 

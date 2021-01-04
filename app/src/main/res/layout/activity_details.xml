@@ -20,8 +20,8 @@
             android:id="@+id/details_toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/purple_200"
-            android:elevation="0dp" />
+            android:elevation="0dp"
+            android:theme="@style/Theme.MaterialComponents.DayNight" />
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/details_tab_layout"
