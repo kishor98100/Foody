@@ -57,13 +57,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:layout_marginBottom="4dp"
+                android:text="@{String.valueOf(ingredient.amount) +` `+ String.valueOf(ingredient.unit)}"
                 app:layout_constraintBottom_toTopOf="@+id/ingredients_type_text_view"
                 app:layout_constraintEnd_toEndOf="@+id/ingredients_name_text_view"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/ingredients_name_text_view"
-                app:layout_constraintTop_toBottomOf="@+id/ingredients_name_text_view"
-                app:setAmount="@{ingredient.amount}"
-                app:unit="@{ingredient.unit}" />
+                app:layout_constraintTop_toBottomOf="@+id/ingredients_name_text_view" />
 
             <TextView
                 android:id="@+id/ingredients_type_text_view"

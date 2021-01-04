@@ -66,7 +66,7 @@ class RecipesFragment : Fragment() {
         setUpRecyclerView()
         readOfflineData()
 
-        lifecycleScope.launch {
+        lifecycleScope.launchWhenCreated {
 
             networkChangedListener = NetworkChangedListener()
 

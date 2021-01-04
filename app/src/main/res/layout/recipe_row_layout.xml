@@ -100,11 +100,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
+                    android:text="@{String.valueOf(foodResult.aggregateLikes)}"
                     android:textAlignment="center"
                     android:textColor="@color/red"
                     app:layout_constraintStart_toStartOf="@+id/recipe_description_text_view"
                     app:layout_constraintTop_toBottomOf="@+id/recipe_heart_image_view"
-                    app:setLikes="@{foodResult.aggregateLikes}"
                     tools:text="100" />
 
                 <ImageView
@@ -123,11 +123,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
+                    android:text="@{String.valueOf(foodResult.readyInMinutes)}"
                     android:textAlignment="center"
                     android:textColor="@color/yellow"
                     app:layout_constraintStart_toEndOf="@+id/recipe_heart_text_view"
                     app:layout_constraintTop_toBottomOf="@+id/recipe_clock_image_view"
-                    app:setMinutes="@{foodResult.readyInMinutes}"
                     tools:text="100" />
 
                 <ImageView

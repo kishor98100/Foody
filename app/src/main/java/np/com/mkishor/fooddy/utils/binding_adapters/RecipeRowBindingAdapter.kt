@@ -26,22 +26,11 @@ class RecipeRowBindingAdapter {
     companion object {
         const val TAG = "RecipeBinding"
 
-        @BindingAdapter("app:setLikes")
-        @JvmStatic
-        fun setNumberOfLikes(textView: TextView, likes: Int) {
-            textView.text = likes.toString()
-        }
-
-        @BindingAdapter("app:setMinutes")
-        @JvmStatic
-        fun setNumberOfMinutes(textView: TextView, minutes: Int) {
-            textView.text = minutes.toString()
-        }
-
 
         @BindingAdapter("app:veganColor")
         @JvmStatic
         fun applyVeganColor(view: View, vegan: Boolean) {
+
             if (vegan) {
                 when (view) {
                     is TextView -> {
@@ -88,19 +77,10 @@ class RecipeRowBindingAdapter {
         @BindingAdapter("app:parseHtml")
         @JvmStatic
         fun parseHtml(textView: TextView, description: String?) {
-
             if (description != null) {
                 val desc = Jsoup.parse(description).text()
                 textView.text = desc
             }
-
-        }
-
-        @BindingAdapter("app:setAmount", "app:unit", requireAll = true)
-        @JvmStatic
-        fun setIngredientAmount(textView: TextView, amount: Double, unit: String) {
-            val text = "$amount $unit"
-            textView.text = text
 
         }
 

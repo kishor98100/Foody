@@ -7,7 +7,6 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
-import kotlinx.android.synthetic.main.favorite_recipe_row.view.*
 import np.com.mkishor.fooddy.R
 import np.com.mkishor.fooddy.data.entities.FavoriteRecipeEntity
 import np.com.mkishor.fooddy.databinding.FavoriteRecipeRowBinding
@@ -40,7 +39,7 @@ class FavoriteRecipeAdapter(
     private var selectedRecipes = arrayListOf<FavoriteRecipeEntity>()
 
 
-    class FavoriteViewHolder(private val binding: FavoriteRecipeRowBinding) :
+    class FavoriteViewHolder(val binding: FavoriteRecipeRowBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(favoriteRecipeEntity: FavoriteRecipeEntity) {
@@ -160,17 +159,15 @@ class FavoriteRecipeAdapter(
         backgroundColor: Int,
         strokeColor: Int
     ) {
-        viewHolder.itemView.favorite_recipe_row_layout.setBackgroundColor(
+        viewHolder.binding.favoriteRecipeRowLayout.setBackgroundColor(
             ContextCompat.getColor(
                 requreActivity,
                 backgroundColor
             )
         )
-        viewHolder.itemView.favorite_recipe_row_card_view.setStrokeColor(
-            ContextCompat.getColor(
-                requreActivity,
-                strokeColor
-            )
+        viewHolder.binding.favoriteRecipeRowCardView.strokeColor = ContextCompat.getColor(
+            requreActivity,
+            strokeColor
         )
     }
 

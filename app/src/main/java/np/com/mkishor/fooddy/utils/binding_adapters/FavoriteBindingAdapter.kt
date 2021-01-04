@@ -1,8 +1,6 @@
 package np.com.mkishor.fooddy.utils.binding_adapters
 
 import android.view.View
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import np.com.mkishor.fooddy.data.entities.FavoriteRecipeEntity
@@ -17,8 +15,6 @@ import np.com.mkishor.fooddy.ui.adapters.FavoriteRecipeAdapter
  */
 class FavoriteBindingAdapter {
     companion object {
-        const val TAG = "FAVORITE_BINDING_ADAPTER"
-
 
         @BindingAdapter("app:setData", "app:adapter", requireAll = false)
         @JvmStatic
@@ -27,43 +23,28 @@ class FavoriteBindingAdapter {
             favorites: List<FavoriteRecipeEntity>?,
             adapter: FavoriteRecipeAdapter?
         ) {
+
+
             if (favorites.isNullOrEmpty()) {
-                when (view) {
-                    is ImageView -> {
-                        view.run {
-                            visibility = View.VISIBLE
-                        }
-                    }
-                    is TextView -> {
-                        view.run {
-                            visibility = View.VISIBLE
-                        }
-                    }
-                    is RecyclerView -> {
-                        view.run {
-                            visibility = View.GONE
-                        }
+
+                view.run {
+                    visibility = if (this is RecyclerView) {
+                        View.GONE
+                    } else {
+                        View.VISIBLE
                     }
                 }
+
             } else {
-                when (view) {
-                    is ImageView -> {
-                        view.run {
-                            visibility = View.GONE
-                        }
-                    }
-                    is TextView -> {
-                        view.run {
-                            visibility = View.GONE
-                        }
-                    }
-                    is RecyclerView -> {
-                        view.run {
-                            visibility = View.VISIBLE
-                            adapter?.setData(favorites)
-                        }
+                view.run {
+                    visibility = if (this is RecyclerView) {
+                        adapter?.setData(favorites)
+                        View.VISIBLE
+                    } else {
+                        View.GONE
                     }
                 }
+
             }
         }
 

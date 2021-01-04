@@ -5,6 +5,7 @@
     android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".ui.fragments.details.OverviewFragment">
 
     <ImageView
@@ -238,6 +239,7 @@
         app:layout_constraintTop_toBottomOf="@+id/details_vegan_image_view" />
 
     <ScrollView
+        android:id="@+id/scrollView2"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="12dp"

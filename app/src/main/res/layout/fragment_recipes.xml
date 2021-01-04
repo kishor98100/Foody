@@ -53,7 +53,7 @@
             android:alpha="0.5"
             android:contentDescription="@string/app_name"
             android:src="@drawable/ic_sad"
-            android:visibility="gone"
+            android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -72,12 +72,12 @@
             android:text="@string/no_internet_connection"
             android:textSize="16sp"
             android:textStyle="bold"
-            android:visibility="gone"
+            android:visibility="invisible"
             app:layout_constraintEnd_toEndOf="@+id/error_image_view"
             app:layout_constraintStart_toStartOf="@+id/error_image_view"
             app:layout_constraintTop_toBottomOf="@+id/error_image_view"
-            app:readApiResponseText="@{mainViewModel.recipesResponse}"
-            app:readDatabaseText="@{mainViewModel.readRecipes}" />
+            app:readApiResponse="@{mainViewModel.recipesResponse}"
+            app:readDatabase="@{mainViewModel.readRecipes}" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
