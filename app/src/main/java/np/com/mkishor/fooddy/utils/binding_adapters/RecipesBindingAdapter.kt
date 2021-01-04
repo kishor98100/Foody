@@ -16,7 +16,7 @@ import np.com.mkishor.fooddy.utils.NetworkResult
  *
  */
 
-class RecipesBinding {
+class RecipesBindingAdapter {
     companion object {
         @BindingAdapter("app:readApiResponse", "app:readDatabase", requireAll = true)
         @JvmStatic

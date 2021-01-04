@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import np.com.mkishor.fooddy.data.models.FoodResult
 import np.com.mkishor.fooddy.databinding.FragmentIngredientsBinding
 import np.com.mkishor.fooddy.ui.adapters.IngredientAdapter
+import np.com.mkishor.fooddy.utils.Constants.Companion.RECIPE_BUNDLE_NAME
 
 
 class IngredientsFragment : Fragment() {
@@ -26,7 +27,7 @@ class IngredientsFragment : Fragment() {
 
 
         val args = arguments
-        val foodResult: FoodResult? = args?.getParcelable("recipeBundle")
+        val foodResult: FoodResult? = args?.getParcelable(RECIPE_BUNDLE_NAME)
 
         setUpRecyclerView()
         foodResult?.extendedIngredients?.let {

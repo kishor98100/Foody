@@ -3,6 +3,7 @@ package np.com.mkishor.fooddy.data.sources.local
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
+import np.com.mkishor.fooddy.data.entities.FavoriteRecipeEntity
 import np.com.mkishor.fooddy.data.entities.FoodRecipeEntity
 
 
@@ -14,8 +15,8 @@ import np.com.mkishor.fooddy.data.entities.FoodRecipeEntity
  */
 
 @Database(
-    entities = [FoodRecipeEntity::class],
-    version = 1,
+    entities = [FoodRecipeEntity::class, FavoriteRecipeEntity::class],
+    version = 2,
     exportSchema = false
 
 )

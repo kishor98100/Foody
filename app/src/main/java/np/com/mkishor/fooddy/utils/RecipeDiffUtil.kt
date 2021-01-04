@@ -1,7 +1,6 @@
 package np.com.mkishor.fooddy.utils
 
 import androidx.recyclerview.widget.DiffUtil
-import np.com.mkishor.fooddy.data.models.FoodResult
 
 
 /**
@@ -10,9 +9,9 @@ import np.com.mkishor.fooddy.data.models.FoodResult
  * @email:  mainalikishor@outlook.com
  *
  */
-class RecipeDiffUtil(
-    private val oldList: List<FoodResult>,
-    private val newList: List<FoodResult>,
+class RecipeDiffUtil<T>(
+    private val oldList: List<T>,
+    private val newList: List<T>,
 ) : DiffUtil.Callback() {
     override fun getOldListSize(): Int = oldList.size
 

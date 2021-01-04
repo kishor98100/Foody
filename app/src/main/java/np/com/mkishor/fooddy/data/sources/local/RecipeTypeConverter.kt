@@ -4,6 +4,7 @@ import androidx.room.TypeConverter
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import np.com.mkishor.fooddy.data.models.FoodRecipe
+import np.com.mkishor.fooddy.data.models.FoodResult
 
 
 /**
@@ -29,5 +30,17 @@ class RecipeTypeConverter {
         return gson.fromJson(foodRecipe, type)
     }
 
+    @TypeConverter
+    fun fromFoodResult(foodResult: FoodResult): String {
+        val type = object : TypeToken<FoodResult>() {}.type
+        return gson.toJson(foodResult, type)
+
+    }
+
+    @TypeConverter
+    fun toFoodResult(foodResult: String): FoodResult {
+        val type = object : TypeToken<FoodResult>() {}.type
+        return gson.fromJson(foodResult, type)
+    }
 
 }

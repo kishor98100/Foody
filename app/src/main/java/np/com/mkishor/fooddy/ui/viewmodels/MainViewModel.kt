@@ -8,6 +8,7 @@ import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import np.com.mkishor.fooddy.data.entities.FavoriteRecipeEntity
 import np.com.mkishor.fooddy.data.entities.FoodRecipeEntity
 import np.com.mkishor.fooddy.data.models.FoodRecipe
 import np.com.mkishor.fooddy.data.repositories.FoodRecipeRepository
@@ -28,11 +29,31 @@ class MainViewModel @ViewModelInject constructor(
 
 
     /** ROOM DATABASE **/
-    val readRecipes: LiveData<List<FoodRecipeEntity>> = repository.local.readDatabase().asLiveData()
+    val readRecipes: LiveData<List<FoodRecipeEntity>> = repository.local.readRecipes().asLiveData()
+    val readFavoritesRecipes: LiveData<List<FavoriteRecipeEntity>> =
+        repository.local.readFavoriteRecipes().asLiveData()
 
     private fun insertRecipes(recipeEntity: FoodRecipeEntity) =
         viewModelScope.launch(Dispatchers.IO) {
             repository.local.insertFoodRecipes(recipeEntity)
+        }
+
+    fun insertFavoriteRecipes(favoriteRecipeEntity: FavoriteRecipeEntity) =
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.local.insertFavoriteRecipes(favoriteRecipeEntity)
+
+        }
+
+    fun deleteFavoriteRecipe(favoriteRecipeEntity: FavoriteRecipeEntity) =
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.local.deleteFavoriteRecipe(favoriteRecipeEntity)
+
+        }
+
+    fun deleteAllFavorites() =
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.local.deleteAllFavorites()
+
         }
 
 
@@ -58,7 +79,6 @@ class MainViewModel @ViewModelInject constructor(
                 searchRecipesResponse.value = handleFoodRecipesResponse(response)
             } catch (e: Exception) {
                 searchRecipesResponse.value = NetworkResult.Error(e.localizedMessage)
-
             }
 
         } else {

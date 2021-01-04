@@ -1,21 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/favorite_root"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/lightGray"
-    tools:context=".ui.fragments.favorites.FavoriteRecipesFragment">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <TextView
+    <data>
+
+        <variable
+            name="viewModel"
+            type="np.com.mkishor.fooddy.ui.viewmodels.MainViewModel" />
+
+        <variable
+            name="adapter"
+            type="np.com.mkishor.fooddy.ui.adapters.FavoriteRecipeAdapter" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/favorite_root"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/favorite_recipes"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:alpha="0.5"
+        android:background="@color/lightGray"
+        tools:context=".ui.fragments.favorites.FavoriteRecipesFragment">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/favorite_recipes_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            app:adapter="@{adapter}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:setData="@{viewModel.readFavoritesRecipes}" />
+
+        <ImageView
+            android:id="@+id/no_data_image_view"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:contentDescription="@string/favorite_recipes"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.37"
+            app:setData="@{viewModel.readFavoritesRecipes}"
+            app:srcCompat="@drawable/ic_menu_book" />
+
+        <TextView
+            android:id="@+id/no_recipe_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:alpha="0.5"
+            android:text="@string/no_favorites_recipe_found"
+            android:textColor="@color/darkGray"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="@+id/no_data_image_view"
+            app:layout_constraintStart_toStartOf="@+id/no_data_image_view"
+            app:layout_constraintTop_toBottomOf="@+id/no_data_image_view"
+            app:setData="@{viewModel.readFavoritesRecipes}" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

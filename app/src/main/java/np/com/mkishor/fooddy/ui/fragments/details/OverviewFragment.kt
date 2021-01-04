@@ -10,6 +10,7 @@ import coil.load
 import np.com.mkishor.fooddy.R
 import np.com.mkishor.fooddy.data.models.FoodResult
 import np.com.mkishor.fooddy.databinding.FragmentOverviewBinding
+import np.com.mkishor.fooddy.utils.Constants.Companion.RECIPE_BUNDLE_NAME
 import org.jsoup.Jsoup
 
 class OverviewFragment : Fragment() {
@@ -25,7 +26,7 @@ class OverviewFragment : Fragment() {
         _binding = FragmentOverviewBinding.inflate(inflater, container, false)
 
         val args = arguments
-        val foodResult: FoodResult? = args?.getParcelable("recipeBundle")
+        val foodResult: FoodResult? = args?.getParcelable(RECIPE_BUNDLE_NAME)
 
         binding.detailsImageView.load(foodResult?.image)
         binding.detailsTitleTextView.text = foodResult?.title

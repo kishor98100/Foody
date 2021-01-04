@@ -14,8 +14,6 @@ class Constants {
         const val API_KEY = "87fadbb5cb9744d593e1897f92c9bd65"
 
         //API Query Keys
-
-
         const val QUERY_NUMBER = "number"
         const val QUERY_SEARCH = "query"
         const val QUERY_API_KEY = "apiKey"
@@ -27,6 +25,7 @@ class Constants {
         //ROOM database
         const val DATABASE_NAME = "recipes_database.db"
         const val RECIPE_TABLE = "recipes"
+        const val FAVORITE_RECIPE_TABLE = "favorites"
 
 
         // Bottom Sheet Preferences
@@ -38,5 +37,9 @@ class Constants {
         const val PREFERENCE_MEAL_TYPE_ID = "mealTypeId"
         const val PREFERENCE_DIET_TYPE = "dietType"
         const val PREFERENCE_DIET_TYPE_ID = "dietTypeId"
+
+
+        //recipes
+        const val RECIPE_BUNDLE_NAME = "recipeBundle"
     }
 }

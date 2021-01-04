@@ -26,5 +26,7 @@
     <color name="checkedChipTextColor">@color/purple_200</color>
     <color name="chipTextColor">@color/darkGray</color>
 
+    <color name="cardBackgroundLightColor">#106200EA</color>
+
 
 </resources>

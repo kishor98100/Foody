@@ -99,7 +99,8 @@ class RecipeRowBindingAdapter {
         @BindingAdapter("app:setAmount", "app:unit", requireAll = true)
         @JvmStatic
         fun setIngredientAmount(textView: TextView, amount: Double, unit: String) {
-            textView.text = "${amount.toInt()} $unit"
+            val text = "$amount $unit"
+            textView.text = text
 
         }
 

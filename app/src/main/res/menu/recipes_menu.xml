@@ -11,4 +11,12 @@
         app:showAsAction="ifRoom"
         tools:targetApi="o" />
 
+    <item
+        android:id="@+id/recipe_filter_menu"
+        android:icon="@drawable/ic_filter"
+        android:iconTint="@color/white"
+        android:title="@string/filter"
+        app:showAsAction="ifRoom"
+        tools:targetApi="o" />
+
 </menu>

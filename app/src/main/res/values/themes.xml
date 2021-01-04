@@ -13,6 +13,7 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor">@color/purple_500</item>
         <!-- Customize your theme here. -->
+        <item name="actionModeBackground">@color/darker</item>
     </style>
 
     <style name="CustomChipStyle" parent="Widget.MaterialComponents.Chip.Filter">

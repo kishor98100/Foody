@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="favoriteRecipe"
+            type="np.com.mkishor.fooddy.data.entities.FavoriteRecipeEntity" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/favorite_recipe_row_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="4dp"
+        android:clickable="true"
+        android:focusable="true">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/favorite_recipe_row_card_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/lightMediumGray"
+            app:strokeWidth="1dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white">
+
+                <ImageView
+                    android:id="@+id/favorite_recipe_row_image_view"
+                    android:layout_width="200dp"
+                    android:layout_height="0dp"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:loadImage="@{favoriteRecipe.foodResult.image}"
+                    tools:srcCompat="@tools:sample/avatars" />
+
+                <TextView
+                    android:id="@+id/favorite_recipe_title_text_view"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="12dp"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/courgette"
+                    android:maxLines="2"
+                    android:text="@{favoriteRecipe.foodResult.title}"
+                    android:textColor="@color/darker"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/favorite_recipe_row_image_view"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/favorite_recipe_description_text_view"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:ellipsize="end"
+                    android:maxLines="3"
+                    android:textColor="@color/darkGray"
+                    app:layout_constraintEnd_toEndOf="@+id/favorite_recipe_title_text_view"
+                    app:layout_constraintStart_toStartOf="@+id/favorite_recipe_title_text_view"
+                    app:layout_constraintTop_toBottomOf="@+id/favorite_recipe_title_text_view"
+                    app:parseHtml="@{favoriteRecipe.foodResult.summary}" />
+
+                <ImageView
+                    android:id="@+id/favorite_recipe_heart_image_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="36dp"
+                    android:contentDescription="@string/app_name"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/favorite_recipe_heart_text_view"
+                    app:layout_constraintStart_toStartOf="@+id/favorite_recipe_heart_text_view"
+                    app:layout_constraintTop_toBottomOf="@+id/favorite_recipe_description_text_view"
+                    app:layout_constraintVertical_bias="0.15"
+                    app:srcCompat="@drawable/ic_heart"
+                    app:tint="@color/red" />
+
+                <TextView
+                    android:id="@+id/favorite_recipe_heart_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:textAlignment="center"
+                    android:textColor="@color/red"
+                    app:layout_constraintStart_toStartOf="@+id/favorite_recipe_description_text_view"
+                    app:layout_constraintTop_toBottomOf="@+id/favorite_recipe_heart_image_view"
+                    app:setLikes="@{favoriteRecipe.foodResult.aggregateLikes}"
+                    tools:text="100" />
+
+                <ImageView
+                    android:id="@+id/favorite_recipe_clock_image_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/app_name"
+                    app:layout_constraintEnd_toEndOf="@+id/favorite_recipe_clock_text_view"
+                    app:layout_constraintStart_toStartOf="@+id/favorite_recipe_clock_text_view"
+                    app:layout_constraintTop_toTopOf="@+id/favorite_recipe_heart_image_view"
+                    app:srcCompat="@drawable/ic_clock"
+                    app:tint="@color/yellow" />
+
+                <TextView
+                    android:id="@+id/favorite_recipe_clock_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:textAlignment="center"
+                    android:textColor="@color/yellow"
+                    app:layout_constraintStart_toEndOf="@+id/favorite_recipe_heart_text_view"
+                    app:layout_constraintTop_toBottomOf="@+id/favorite_recipe_clock_image_view"
+                    app:setMinutes="@{favoriteRecipe.foodResult.readyInMinutes}"
+                    tools:text="100" />
+
+                <ImageView
+                    android:id="@+id/favorite_recipe_leaf_image_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="@+id/favorite_recipe_leaf_text_view"
+                    app:layout_constraintStart_toStartOf="@+id/favorite_recipe_leaf_text_view"
+                    app:layout_constraintTop_toTopOf="@+id/favorite_recipe_clock_image_view"
+                    app:srcCompat="@drawable/ic_leaf"
+                    app:veganColor="@{favoriteRecipe.foodResult.vegan}" />
+
+                <TextView
+                    android:id="@+id/favorite_recipe_leaf_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:text="Vegan"
+                    android:textAlignment="center"
+                    app:layout_constraintStart_toEndOf="@+id/favorite_recipe_clock_text_view"
+                    app:layout_constraintTop_toBottomOf="@+id/favorite_recipe_leaf_image_view"
+                    app:veganColor="@{favoriteRecipe.foodResult.vegan}" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

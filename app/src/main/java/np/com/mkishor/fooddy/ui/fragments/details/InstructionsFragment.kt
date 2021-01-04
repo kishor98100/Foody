@@ -9,6 +9,8 @@ import android.webkit.WebViewClient
 import androidx.fragment.app.Fragment
 import np.com.mkishor.fooddy.data.models.FoodResult
 import np.com.mkishor.fooddy.databinding.FragmentInstructionsBinding
+import np.com.mkishor.fooddy.utils.Constants
+import np.com.mkishor.fooddy.utils.Constants.Companion.RECIPE_BUNDLE_NAME
 
 
 class InstructionsFragment : Fragment() {
@@ -25,7 +27,7 @@ class InstructionsFragment : Fragment() {
 
 
         val args = arguments
-        val foodResult: FoodResult? = args?.getParcelable("recipeBundle")
+        val foodResult: FoodResult? = args?.getParcelable(RECIPE_BUNDLE_NAME)
 
         binding.instructionsWebView.webViewClient = object : WebViewClient() {
 
