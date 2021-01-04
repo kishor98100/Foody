@@ -3,6 +3,7 @@ package np.com.mkishor.fooddy.data.sources.local
 import androidx.room.*
 import kotlinx.coroutines.flow.Flow
 import np.com.mkishor.fooddy.data.entities.FavoriteRecipeEntity
+import np.com.mkishor.fooddy.data.entities.FoodJokeEntity
 import np.com.mkishor.fooddy.data.entities.FoodRecipeEntity
 
 
@@ -35,5 +36,12 @@ interface FoodRecipeDao {
 
     @Query("DELETE  FROM favorites")
     suspend fun deleteAllFavorites()
+
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertFoodJoke(foodJokeEntity: FoodJokeEntity)
+
+    @Query("SELECT * FROM food_jokes ORDER BY id ASC")
+    fun getFoodJoke(): Flow<List<FoodJokeEntity>>
 
 }

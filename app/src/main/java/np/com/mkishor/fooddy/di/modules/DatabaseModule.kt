@@ -28,7 +28,8 @@ object DatabaseModule {
     fun provideRoomDatabase(
         @ApplicationContext context: Context
     ): RecipeDatabase =
-        Room.databaseBuilder(context, RecipeDatabase::class.java, DATABASE_NAME).build()
+        Room.databaseBuilder(context, RecipeDatabase::class.java, DATABASE_NAME)
+            .fallbackToDestructiveMigration().build()
 
 
     @Singleton

@@ -2,6 +2,7 @@ package np.com.mkishor.fooddy.data.sources.local
 
 import kotlinx.coroutines.flow.Flow
 import np.com.mkishor.fooddy.data.entities.FavoriteRecipeEntity
+import np.com.mkishor.fooddy.data.entities.FoodJokeEntity
 import np.com.mkishor.fooddy.data.entities.FoodRecipeEntity
 import javax.inject.Inject
 
@@ -28,6 +29,10 @@ class LocalDataSource @Inject constructor(private val dao: FoodRecipeDao) {
         dao.deleteFavoriteRecipe(favoriteRecipeEntity)
 
     suspend fun deleteAllFavorites() = dao.deleteAllFavorites()
+
+    suspend fun insertFoodJoke(foodJokeEntity: FoodJokeEntity) = dao.insertFoodJoke(foodJokeEntity)
+
+    fun readFoodJoke(): Flow<List<FoodJokeEntity>> = dao.getFoodJoke()
 
 
 }

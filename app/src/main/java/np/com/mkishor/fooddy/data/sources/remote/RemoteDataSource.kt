@@ -1,5 +1,6 @@
 package np.com.mkishor.fooddy.data.sources.remote
 
+import np.com.mkishor.fooddy.data.models.FoodJoke
 import np.com.mkishor.fooddy.data.models.FoodRecipe
 import retrofit2.Response
 import javax.inject.Inject
@@ -18,5 +19,7 @@ class RemoteDataSource @Inject constructor(private val api: FoodRecipesApi) {
 
     suspend fun searchRecipes(queries: Map<String, String>): Response<FoodRecipe> =
         api.searchRecipes(queries)
+
+    suspend fun getFoodJoke(apiKey: String): Response<FoodJoke> = api.getFoodJoke(apiKey)
 
 }
